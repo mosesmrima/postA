@@ -4,6 +4,10 @@ PostA is a React mini web application built to demonstrate CRUD operations.
 It uses [ https://jsonplaceholder.typicode.com/]( https://jsonplaceholder.typicode.com/)
 dummy API.
 
+## Technologies Used
+- React
+- TailwindCSS
+
 ## Accessing PostA
 You can run PostA locally or access the hosted instance.
 
