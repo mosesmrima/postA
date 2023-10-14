@@ -50,11 +50,10 @@ export default function DetailedPost() {
         const newAllPosts = allPosts;
         newAllPosts[index] = newPost;
         setAllPosts(newAllPosts);
-        axios.put(`https://jsonplaceholder.typicode.com/posts/${state.post.id}`, allPosts)
     }
     return (
-        <div className={"flex items-center justify-center"}>
-            <Card className={"flex gap-4 w-6/12 p-4 mx-auto font-roboto text-center"}>
+        <div className={"flex items-center justify-center my-20"}>
+            <Card className={"bg-white bg-opacity-5 rounded-xl shadow-2xl flex gap-4  sm:w-6/12 p-4 mx-auto font-roboto text-center"}>
                 <CardHeader className={"flex justify-between"}>
                     <div className={"capitalize text-2xl font-bold"}>
                         {newPost.title?newPost.title:state.post.title}
@@ -63,7 +62,7 @@ export default function DetailedPost() {
                         user.id === state.post.userId? <Button onPress={onOpen} size={"sm"} endContent={<AiOutlineEdit/>}>Edit</Button>: <></>
                     }
 
-                    <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                    <Modal backdrop={"blur"} className={"bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900"} placement={"center"} isOpen={isOpen} onOpenChange={onOpenChange}>
                         <ModalContent>
                             {(onClose) => (
                                 <>

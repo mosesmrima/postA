@@ -20,9 +20,11 @@ import {useEffect, useState, createContext} from "react";
 import axios from "axios";
 import {toast} from "react-toastify";
 
+
 export const UserContext = createContext();
 export const AllPostsContext = createContext();
 export const SetAllPostsContext = createContext();
+
 
 export default function App() {
     const notify = () => toast.success("Post Created");
@@ -47,7 +49,7 @@ export default function App() {
     const handleSubmit = event => {
         event.preventDefault();
         setAllPosts([...allPosts, newPost]);
-        axios.post('https://jsonplaceholder.typicode.com/posts', allPosts).then(() => notify());
+        notify();
     }
 
     useEffect(() => {
@@ -64,40 +66,42 @@ export default function App() {
         <UserContext.Provider value={user}>
             <AllPostsContext.Provider value={allPosts}>
                 <SetAllPostsContext.Provider value={setAllPosts}>
-                    <header className={"flex gap-2 justify-between items-center font-roboto m-2 p-2 px-8"}>
-                        <Button onClick={onOpen} radius={"full"} color={"primary"}>Create Post</Button>
-                        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-                            <ModalContent>
-                                {(onClose) => (
-                                    <>
-                                        <form onSubmit={handleSubmit}>
-                                            <ModalHeader className="flex items-center flex-col gap-1">New Post</ModalHeader>
-                                            <ModalBody>
-                                                <Input label={"Title"} placeholder={"Title"} required={true} type={"text"} name={"title"} value={newPost.title} onChange={handleInputChange}/>
-                                                <Textarea label={"Post Body"} placeholder={"Write your post"} required={true} type={"text"} name={"body"} value={newPost.body} onChange={handleInputChange}/>
-                                            </ModalBody>
-                                            <ModalFooter>
-                                                <Button color="danger" variant="light" onPress={onClose}>Cancel</Button>
-                                                <Button isDisabled={(inputTitleTracker === null || inputTitleTracker.match(/^ *$/) !== null) || (inputBodyTracker === null || inputBodyTracker.match(/^ *$/) !== null) } type={"submit"} color="primary" onPress={onClose}>Create</Button>
-                                            </ModalFooter>
-                                        </form>
-                                    </>
-                                )}
-                            </ModalContent>
-                        </Modal>
-                        <div className={"flex items-center gap-6 "}>
-                            <div className={"flex gap-2"}>
-                                <h3> Welcome</h3>
-                                <h1 className={"font-roboto text-l font-bold"}>{user.username}</h1>
+                    <div className={"min-h-screen bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-gray-700 via-gray-100 to-gray-900"}>
+                        <header className={"flex gap-2 justify-between items-center font-roboto  p-2 px-8"}>
+                            <Button onClick={onOpen} radius={"full"} color={"primary"}>Create Post</Button>
+                            <Modal backdrop={"blur"} className={"bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900"} placement={"center"} isOpen={isOpen} onOpenChange={onOpenChange}>
+                                <ModalContent>
+                                    {(onClose) => (
+                                        <>
+                                            <form onSubmit={handleSubmit}>
+                                                <ModalHeader className="flex items-center flex-col gap-1">New Post</ModalHeader>
+                                                <ModalBody>
+                                                    <Input label={"Title"} placeholder={"Title"} required={true} type={"text"} name={"title"} value={newPost.title} onChange={handleInputChange}/>
+                                                    <Textarea label={"Post Body"} placeholder={"Write your post"} required={true} type={"text"} name={"body"} value={newPost.body} onChange={handleInputChange}/>
+                                                </ModalBody>
+                                                <ModalFooter>
+                                                    <Button color="danger" variant="light" onPress={onClose}>Cancel</Button>
+                                                    <Button isDisabled={(inputTitleTracker === null || inputTitleTracker.match(/^ *$/) !== null) || (inputBodyTracker === null || inputBodyTracker.match(/^ *$/) !== null) } type={"submit"} color="primary" onPress={onClose}>Create</Button>
+                                                </ModalFooter>
+                                            </form>
+                                        </>
+                                    )}
+                                </ModalContent>
+                            </Modal>
+                            <div className={"flex items-center gap-6 "}>
+                                <div className={"flex gap-2"}>
+                                    <h3> Welcome</h3>
+                                    <h1 className={"font-roboto text-l font-bold"}>{user.username}</h1>
+                                </div>
+                                <Avatar showFallback src='https://images.unsplash.com/broken' />
                             </div>
-                            <Avatar showFallback src='https://images.unsplash.com/broken' />
-                        </div>
-                    </header>
-                    <Routes>
-                        <Route path={"/"} element={<Home/>}/>
-                        <Route path={"/posts/:id"} element={<DetailedPost/>}/>
-                        <Route path={"*"} element={<NotFoundPage/>}/>
-                    </Routes>
+                        </header>
+                        <Routes>
+                            <Route path={"/"} element={<Home/>}/>
+                            <Route path={"/posts/:id"} element={<DetailedPost/>}/>
+                            <Route path={"*"} element={<NotFoundPage/>}/>
+                        </Routes>
+                    </div>
                 </SetAllPostsContext.Provider>
             </AllPostsContext.Provider>
         </UserContext.Provider>

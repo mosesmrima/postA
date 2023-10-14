@@ -60,7 +60,7 @@ export default function Home() {
         )
     ).reverse();
     let otherUsersPostEl = otherPosts.map((post, i) => (
-            <div key={i} className={"w-96 m-2 rounded-2xl flex flex-col gap-2 p-4 items-center justify-between bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg"}>
+            <div key={i} className={"w-96 m-2 rounded-2xl flex flex-col gap-2 p-2 items-center justify-between bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg"}>
                 <h1 className={"text-2xl text-center capitalize"}>{post.title}</h1>
                 <p>{post.body.slice(0, 100)} ...</p>
                 <div className={"flex justify-between w-full"}>
@@ -72,17 +72,16 @@ export default function Home() {
 
     return (
         <div>
-
-            <div className={"flex w-11/12 justify-center p-4 mx-auto"}>
-                <div className={""}>
+            <div className={"flex gap-4 flex-col sm:flex-row w-11/12 justify-center p-4 mx-auto"}>
+                <div className={"shadow-2xl rounded-3xl"}>
                     <h1 className={"font-roboto text-2xl  m-2 p-2"}>Your Posts</h1>
-                    <div className={"bg-gray-300 bg-opacity-5 flex flex-wrap justify-center w-96 h-[630px] overflow-hidden overflow-y-scroll cursor-grab"}>
+                    <div className={" bg-opacity-5 flex flex-wrap justify-center w-96 h-[630px] overflow-hidden overflow-y-scroll cursor-grab"}>
                         {currentUserPostEl}
                     </div>
                 </div>
-                <div className={"cursor-grab"}>
-                    <h1 className={"font-roboto text-2xl text-center m-2 p-2"}>Other Posts</h1>
-                    <div className={"flex flex-wrap justify-center h-[630px] overflow-hidden overflow-y-scroll"}>
+                <div className={"cursor-grab rounded-2xl shadow-2xl"}>
+                    <h1 className={"font-roboto text-2xl text-center p-2"}>Other Posts</h1>
+                    <div className={"shadow-inner-2xl flex flex-wrap justify-center h-[630px] overflow-hidden overflow-y-scroll"}>
                         {otherUsersPostEl}
                     </div>
                 </div>
