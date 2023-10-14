@@ -5,8 +5,9 @@ It uses [ https://jsonplaceholder.typicode.com/]( https://jsonplaceholder.typico
 dummy API.
 
 ## Accessing PostA
+You can run PostA locally or access the hosted instance.
 
-You can run it locally by cloning this repository and running the command below at the root directory of the project:
+### Running Locally:
 
 ```bash
 # Clone the repository
@@ -22,7 +23,7 @@ npm install
 npm start
 ```
 
-
+### Accessing The Hosted Instance:
 You can also access an instance of PostA from the Link below:
  
 #### [https://posta-lime.vercel.app/](https://posta-lime.vercel.app/)
@@ -39,8 +40,7 @@ PostA enables users to:
 
 - **Delete Post:** Remove only the posts they've own.
 
-**Note**: *A post is considered to be own by a particular use if the ID of
-the user matches the user ID of associated with the post.*
+**Note**: *A post is owned by a user if their ID matches the post's associated user ID*
 
 
 ## Security Feature
