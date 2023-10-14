@@ -21,7 +21,6 @@ git clone https://github.com/mosesmrima/posta
 cd posta
 
 # Install dependencies
-
 npm install
 # start the development server
 npm start
