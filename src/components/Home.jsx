@@ -42,7 +42,7 @@ export default function Home() {
     }
 
     let currentUserPostEl = currentUserPosts.map((post, i) => (
-            <div key={i} className={"w-96 m-2 rounded-2xl flex flex-col gap-2 p-4 items-center justify-between bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg"}>
+            <div key={i} className={" m-2 rounded-2xl flex flex-col gap-2 p-4 items-center justify-between bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg"}>
                 <h1 className={"text-2xl text-center capitalize"}>{post.title}</h1>
                 <p>{post.body.slice(0, 100)} ...</p>
                 <div className={"flex justify-between w-full"}>
@@ -75,7 +75,7 @@ export default function Home() {
             <div className={"flex gap-4 flex-col sm:flex-row w-11/12 justify-center p-4 mx-auto"}>
                 <div className={"shadow-2xl rounded-3xl"}>
                     <h1 className={"font-roboto text-2xl  m-2 p-2"}>Your Posts</h1>
-                    <div className={" bg-opacity-5 flex flex-wrap justify-center w-96 h-[630px] overflow-hidden overflow-y-scroll cursor-grab"}>
+                    <div className={" bg-opacity-5 flex flex-wrap justify-center  h-[630px] overflow-hidden overflow-y-scroll cursor-grab"}>
                         {currentUserPostEl}
                     </div>
                 </div>
