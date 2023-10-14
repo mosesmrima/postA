@@ -1,6 +1,6 @@
 # PostA
 
-PostA is a React mini web application built to demonstrate crude operations.
+PostA is a React mini web application built to demonstrate CRUD operations.
 It uses [ https://jsonplaceholder.typicode.com/]( https://jsonplaceholder.typicode.com/)
 dummy API.
 
