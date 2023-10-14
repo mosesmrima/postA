@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# PostA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PostA is a React mini web application built to demonstrate crude operations.
+It uses [ https://jsonplaceholder.typicode.com/]( https://jsonplaceholder.typicode.com/)
+dummy API.
 
-## Available Scripts
+## Accessing PostA
 
-In the project directory, you can run:
+You can run it locally by cloning this repository and running the command below at the root directory of the project:
 
-### `npm start`
+```bash
+# Clone the repository
+git clone https://github.com/mosesmrima/posta
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Change directory to the project folder
+cd posta
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Install dependencies
 
-### `npm test`
+npm install
+# start the development server
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+You can also access an instance of PostA from the Link below:
+ 
+#### [https://posta-lime.vercel.app/](https://posta-lime.vercel.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Allowed Operations
+PostA enables users to:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **View Posts:** Explore all available posts with titles, authors, and content.
 
-### `npm run eject`
+- **Create Posts:** Generate new posts by providing a title and content.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Edit Post:** Modify their own posts by changing titles and content.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Delete Post:** Remove only the posts they've own.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Note**: *A post is considered to be own by a particular use if the ID of
+the user matches the user ID of associated with the post.*
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Security Feature
+To mitigate **Broken Object Level Authorization (BOLA)** vulnerability, PostA simulates a logged-in user
+by randomly selecting a user. A user is can view all posts but is only allowed 
+to delete or edit belonging to them.
+BOPLA vulnerability is listed as the top API vulnerability by OWASP, you can read more
+on BOPLA and other API/Web Applications vulnerabilities from:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [OWASP API Security Top 10](https://owasp.org/API-Security/editions/2023/en/0x00-header/)
+- [OWASP Web Application Security Top 10](https://owasp.org/www-project-top-ten/)
