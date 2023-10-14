@@ -5,8 +5,8 @@ It uses [ https://jsonplaceholder.typicode.com/]( https://jsonplaceholder.typico
 dummy API.
 
 ## Technologies Used
-- React
-- TailwindCSS
+- **React**
+- **TailwindCSS**
 
 ## Accessing PostA
 You can run PostA locally or access the hosted instance.
