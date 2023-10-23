@@ -41,14 +41,14 @@ PostA enables users to:
 
 - **Edit Post:** Modify their own posts by changing titles and content.
 
-- **Delete Post:** Remove only the posts they've own.
+- **Delete Post:** Remove only the posts they own.
 
 **Note**: *A post is owned by a user if their ID matches the post's associated user ID*
 
 
 ## Security Feature
 To mitigate **Broken Object Level Authorization (BOLA)** vulnerability, PostA simulates a logged-in user
-by randomly selecting a user. A user is can view all posts but is only allowed 
+by randomly selecting a user. A user can view all posts but is only allowed 
 to delete or edit belonging to them.
 BOPLA vulnerability is listed as the top API vulnerability by OWASP, you can read more
 on BOPLA and other API/Web Applications vulnerabilities from:
